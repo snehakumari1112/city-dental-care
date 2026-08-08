@@ -22,7 +22,7 @@ import { testimonials } from "../data/testimonials";
 import { faqs } from "../data/faq";
 
 const stats = [
-  { n: 15, suffix: "+", label: "Years of experience" },
+  { n: 12, suffix: "+", label: "Years of experience" },
   { n: 12, suffix: "k+", label: "Happy patients" },
   { n: 98, suffix: "%", label: "Treatment success" },
   { n: 24, suffix: "/7", label: "Emergency support" },
@@ -114,7 +114,7 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="tel:+919876543210"
+              href="tel:+917481085256"
               className="group inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:scale-[1.03]"
             >
               Call now <Phone size={15} />
@@ -288,33 +288,35 @@ function About() {
       <div className="container-site grid items-center gap-12 lg:grid-cols-2">
         <div className="relative">
           <img
-            className="h-97.5 w-full rounded-4xl object-cover"
-            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1100&q=85"
-            alt="Modern dental clinic treatment room"
+            className="h-97.5 w-full rounded-4xl object-cover object-[center_10%]"
+            src="src/assets/Amrita.png"
+            alt="Dr. Amrita Sen, principal dentist at City Dental Care & Implant Centre"
           />
           <div className="absolute -bottom-5 right-5 max-w-52 rounded-2xl bg-white p-4 shadow-soft">
             <Award className="mb-2 text-[#2F80ED]" size={22} />
             <p className="text-sm font-bold text-slate-700">
-              Thoughtful care, at every touchpoint.
+              Principal Dentist at City Dental Care & Implant Centre
             </p>
           </div>
         </div>
         <div>
           <SectionHeading
-            eyebrow="The City Dental Care approach"
+            eyebrow="Meet your dentist"
             title={
               <>
-                Dentistry that feels <i>different.</i>
+                Dr. Amrita Sen,
+                <br />
+                <i>care you can trust.</i>
               </>
             }
-            copy="We bring together clinical excellence, modern technology, and a distinctly human touch—so you can make confident choices about your smile."
+            copy="Dr. Amrita Sen is the principal dentist at City Dental Care & Implant Centre. With a gentle, patient-first approach, she helps individuals and families feel informed, comfortable, and confident in every step of their dental care."
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
-              "Unhurried appointments",
-              "Precision-led treatment",
-              "A calm, considered space",
-              "Personal follow-up care",
+              "BDS, MDS (Prosthodontist)",
+              "12+ years of clinical experience",
+              "Clear, personalised treatment plans",
+              "Gentle care for every age",
             ].map((x) => (
               <p
                 className="flex items-center gap-2 text-sm font-semibold text-slate-600"
@@ -352,7 +354,7 @@ function Services() {
           className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((s, i) => {
-            let Icon = s.icon;
+            const { image } = s;
             return (
               <motion.article
                 custom={i}
@@ -361,8 +363,12 @@ function Services() {
                 className="group rounded-3xl border border-white bg-white p-7 shadow-[0_10px_30px_rgba(44,101,150,.06)] transition"
                 key={s.title}
               >
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-[#2F80ED] transition group-hover:bg-[#2F80ED] group-hover:text-white">
-                  <Icon size={22} />
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#EFF6FF] transition-all duration-300 group-hover:bg-[#2F80ED] group-hover:shadow-lg">
+                  <img
+                    src={image}
+                    alt={s.title}
+                    className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
                 </span>
                 <h3 className="mt-6 text-lg font-bold tracking-tight text-slate-700">
                   {s.title}
@@ -387,7 +393,7 @@ function Why() {
       <div className="container-site">
         <SectionHeading
           centered
-          eyebrow="Why City Dental Care"
+          eyebrow="Why City Dental Care & Implant Centre"
           title={
             <>
               Care shaped around <i>you.</i>
@@ -416,45 +422,75 @@ function Doctors() {
           <div>
             <p className="eyebrow text-blue-300">
               <span className="h-px w-6 bg-blue-300" />
-              Meet the team
+              Other departments
             </p>
             <h2 className="section-title text-white">
-              Exceptional people,
+              Care that supports
               <br />
-              <i className="text-blue-300">gentle hands.</i>
+              <i className="text-blue-300">the whole family.</i>
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-slate-300">
-            Specialists who pair deep expertise with the kind of care you
-            remember.
+            Alongside dental care, City Dental Care & Implant Centre hosts
+            trusted visiting consultants in orthopaedics and paediatrics.
           </p>
         </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {doctors.map((d) => (
-            <Reveal key={d.name}>
-              <article className="group overflow-hidden rounded-[1.75rem] bg-white">
-                <div className="overflow-hidden">
-                  <img
-                    className="h-72 w-full object-cover transition duration-700 group-hover:scale-105"
-                    src={d.image}
-                    alt={d.name}
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#2F80ED]">
-                    {d.qualification}
-                  </p>
-                  <h3 className="mt-2 text-lg font-bold text-slate-700">
-                    {d.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-slate-500">{d.specialty}</p>
-                  <p className="mt-4 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-400">
-                    {d.experience}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {doctors.map((d) => {
+            const overview = d.specialty.includes("Orthopaedic")
+              ? "Known for calm guidance and practical treatment plans for joint, bone, and movement-related concerns."
+              : "Known for gentle, reassuring care that helps children feel comfortable and supported.";
+
+            return (
+              <Reveal key={d.name}>
+                <motion.article
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ duration: 0.24 }}
+                  className="group overflow-hidden rounded-[1.75rem] border border-slate-100 bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
+                >
+                  <div className="grid overflow-hidden md:grid-cols-[0.95fr_1.05fr]">
+                    <div className="relative overflow-hidden bg-slate-100">
+                      <motion.img
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.28 }}
+                        className="h-full min-h-72 w-full object-cover"
+                        src={d.image}
+                        alt={d.name}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
+                      <div className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-700 backdrop-blur">
+                        Specialist
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-between p-6 sm:p-7">
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#2F80ED]">
+                          {d.qualification}
+                        </p>
+                        <h3 className="mt-3 text-xl font-bold text-slate-800">
+                          {d.name}
+                        </h3>
+                        <p className="mt-2 text-sm font-semibold text-slate-500">
+                          {d.specialty}
+                        </p>
+                        <p className="mt-4 text-sm leading-7 text-slate-600">
+                          {overview}
+                        </p>
+                      </div>
+                      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                        <span className="text-sm font-semibold text-slate-600">
+                          {d.experience}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#2F80ED]">
+                          Meet doctor <ArrowRight size={14} />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -584,7 +620,7 @@ function Contact() {
       <div className="container-site grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
         <div>
           <SectionHeading
-            eyebrow="Visit City Dental Care"
+            eyebrow="Visit City Dental Care & Implant Centre"
             title={
               <>
                 Come in. Exhale.
@@ -596,9 +632,12 @@ function Contact() {
           />
           <div className="mt-8 space-y-4">
             {[
-              [MapPin, "24, Park Avenue, Indiranagar, Bengaluru"],
+              [
+                MapPin,
+                "Saxena More, Above Canara Bank, Bodh Gaya, Bihar 824231",
+              ],
               [Clock3, "Mon–Sat · 9:00 AM to 8:00 PM"],
-              [Phone, "+91 98765 43210"],
+              [Phone, "+91 7481085256"],
               [Mail, "hello@lumadental.in"],
             ].map(([I, t]) => {
               let Icon = I;
@@ -617,24 +656,16 @@ function Contact() {
           </div>
         </div>
         <div className="relative min-h-80 overflow-hidden rounded-4xl bg-slate-100">
-          <img
-            className="absolute h-full w-full object-cover opacity-50 grayscale"
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80"
-            alt="Map placeholder"
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.9155330727203!2d84.9783957!3d24.6954302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32d1b4fd23641%3A0x5e6abedf95416c27!2sCity%20Dental%20Care%20%26%20Implant%20Centre!5e0!3m2!1sen!2sin!4v1786085025147!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="City Dental Care & Implant Centre Location"
           />
-          <div className="absolute inset-0 grid place-items-center">
-            <div className="rounded-2xl bg-white p-5 text-center shadow-soft">
-              <span className="mx-auto grid h-10 w-10 place-items-center rounded-full bg-[#2F80ED] text-white">
-                <MapPin size={19} />
-              </span>
-              <p className="mt-3 text-sm font-bold text-slate-700">
-                City Dental Care
-              </p>
-              <p className="mt-1 text-xs text-slate-400">
-                Indiranagar, Bengaluru
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -646,8 +677,11 @@ function Footer() {
       <div className="container-site">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-lg font-bold text-white">
-              City<span className="text-blue-300">Dental</span>
+            <p className="text-lg font-bold text-white leading-tight">
+              City<span className="text-blue-300"> Dental Care</span>
+              <span className="block text-sm font-normal text-white mt-1">
+                & Implant Centre
+              </span>
             </p>
             <p className="mt-3 max-w-xs text-sm leading-6 text-slate-400">
               Modern dentistry, made more human.
@@ -701,7 +735,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-xs text-slate-500">
-          © 2026 City Dental Care. All rights reserved.
+          © 2026 City Dental Care & Implant Centre. All rights reserved.
         </div>
       </div>
     </footer>
@@ -711,14 +745,14 @@ function Floating() {
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2">
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/917481085256"
         className="grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:scale-105"
         aria-label="WhatsApp"
       >
         <MessageCircle size={21} />
       </a>
       <a
-        href="tel:+919876543210"
+        href="tel:+917481085256"
         className="grid h-12 w-12 place-items-center rounded-full bg-[#2F80ED] text-white shadow-lg transition hover:scale-105"
         aria-label="Call now"
       >

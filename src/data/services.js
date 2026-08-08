@@ -1,33 +1,38 @@
-import { Baby, Crown, ScanLine, Sparkles, Stethoscope } from "lucide-react";
+import teethCleaning from "../assets/services/teeth-brush.png";
+import dentalImplant from "../assets/services/implant.png";
+import teethWhitening from "../assets/services/whitening.png";
+import rootCanal from "../assets/services/root-canal.png";
+import braces from "../assets/services/braces.png";
+import kidsDentistry from "../assets/services/baby-dental.png";
 
 export const services = [
   {
-    icon: Sparkles,
+    image: teethCleaning,
     title: "Teeth Cleaning",
     text: "Comfortable hygiene visits that leave your smile beautifully refreshed.",
   },
   {
-    icon: Crown,
+    image: dentalImplant,
     title: "Dental Implants",
     text: "Natural-looking restorations planned around your life and confidence.",
   },
   {
-    icon: Sparkles,
+    image: teethWhitening,
     title: "Teeth Whitening",
     text: "A brighter, more luminous smile with gentle professional care.",
   },
   {
-    icon: Stethoscope,
+    image: rootCanal,
     title: "Root Canal",
     text: "Precise, calm treatment designed to preserve your natural tooth.",
   },
   {
-    icon: ScanLine,
+    image: braces,
     title: "Braces & Aligners",
     text: "Thoughtful orthodontic care for smiles that feel truly yours.",
   },
   {
-    icon: Baby,
+    image: kidsDentistry,
     title: "Kids Dentistry",
     text: "Happy first visits and healthy habits for growing little smiles.",
   },

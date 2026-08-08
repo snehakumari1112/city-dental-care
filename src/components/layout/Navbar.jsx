@@ -24,16 +24,43 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleMobileNavigation = (link) => {
+    setOpen(false);
+
+    // Wait for the mobile menu to close before scrolling
+    setTimeout(() => {
+      const section = document.getElementById(link.toLowerCase());
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Keep the URL hash updated
+        window.history.pushState(
+          null,
+          "",
+          `#${link.toLowerCase()}`
+        );
+      }
+    }, 300);
+  };
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "border-b border-slate-100 bg-white/88 py-2.5 shadow-[0_4px_24px_rgba(15,55,90,.05)] backdrop-blur-xl" : "py-3.5"}`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "border-b border-slate-100 bg-white/88 py-2.5 shadow-[0_4px_24px_rgba(15,55,90,.05)] backdrop-blur-xl"
+          : "py-3.5"
+      }`}
     >
       <div className="container-site flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
           <img
             src={logoIcon}
-            alt="City Dental Care Logo"
-            className="h-9 w-9 object-contain"
+            alt="City Dental Care & Implant Centre"
+            className="h-10 w-10 object-contain"
           />
 
           <div className="leading-tight">
@@ -85,10 +112,13 @@ export default function Navbar() {
             <nav className="container-site grid grid-cols-2 gap-1 py-5">
               {links.map((link) => (
                 <a
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-blue-50"
-                  href={`#${link.toLowerCase()}`}
                   key={link}
+                  href={`#${link.toLowerCase()}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMobileNavigation(link);
+                  }}
+                  className="rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-blue-50"
                 >
                   {link}
                 </a>

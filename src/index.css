@@ -47,7 +47,7 @@
 }
 
 #home [class~="mt-8"] + [class~="mt-10"]::after {
-  content: "OPEN HOURS\A Mon–Sat · 9 AM – 8 PM\A\A LOCATION\A Indiranagar, Bengaluru";
+  content: "OPEN HOURS\A Mon–Sat · 9 AM – 8 PM\A\A LOCATION\A Saxena More, Above Canara Bank, Bodh Gaya";
   white-space: pre-line;
   border: 1px solid #dbeafe;
   border-radius: 16px;
@@ -73,7 +73,7 @@
   z-index: 1;
 }
 
-/* A composed, scroll-led entrance for the Approach section. */
+/* A composed, scroll-led entrance for the principal dentist section. */
 #about img {
   animation: about-image-reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-timeline: view();
@@ -88,23 +88,6 @@
 }
 #about .mt-8 {
   animation-delay: 0.16s;
-}
-
-#about .eyebrow {
-  font-size: 0;
-}
-#about .eyebrow::after {
-  content: "The City Dental Care approach";
-  font-size: 11px;
-}
-
-footer p.text-lg {
-  font-size: 0;
-}
-footer p.text-lg::after {
-  content: "City Dental Care";
-  font-size: 18px;
-  color: white;
 }
 
 @keyframes about-image-reveal {
