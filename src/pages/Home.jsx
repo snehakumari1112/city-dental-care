@@ -20,6 +20,7 @@ import { services, reasons } from "../data/services";
 import { doctors } from "../data/doctors";
 import { testimonials } from "../data/testimonials";
 import { faqs } from "../data/faq";
+import amritaImage from "../assets/Amrita.png";
 
 const stats = [
   { n: 12, suffix: "+", label: "Years of experience" },
@@ -289,7 +290,7 @@ function About() {
         <div className="relative">
           <img
             className="h-97.5 w-full rounded-4xl object-cover object-[center_10%]"
-            src="src/assets/Amrita.png"
+            src={amritaImage}
             alt="Dr. Amrita Sen, principal dentist at City Dental Care & Implant Centre"
           />
           <div className="absolute -bottom-5 right-5 max-w-52 rounded-2xl bg-white p-4 shadow-soft">
